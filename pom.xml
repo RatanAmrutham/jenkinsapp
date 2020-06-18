@@ -31,7 +31,26 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com/</uri>
+						<muleVersion>{app.runtime}</muleVersion>
+						<username>{anypoint.username}</username>
+						<password>{anypoint.password}</password>
+						<applicationName>timezone-app</applicationName>
+						<environment>{anypoint.environment}</environment>
+						<workerType>Micro</workerType>
+						<workers>1</workers>
+					</cloudHubDeployment>
 				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
